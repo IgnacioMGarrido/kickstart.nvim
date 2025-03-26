@@ -2,4 +2,20 @@
 --  I promise not to create any merge conflicts in this directory :)
 --
 -- See the kickstart.nvim README for more information
-return {}
+return {
+  -- require 'custom/plugins/nord-theme',
+  require 'custom/plugins/gruvbox-material',
+
+  {
+    'folke/zen-mode.nvim',
+    opts = {
+      laststatus = 2,
+      window = {
+        width = 0.45,
+      },
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+    },
+  },
+}

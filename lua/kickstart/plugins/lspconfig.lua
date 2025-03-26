@@ -176,8 +176,18 @@ return {
       --  - capabilities (table): Override fields in capabilities. Can be used to disable certain LSP features.
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
+      require('lspconfig').clangd.setup {}
+      require('lspconfig').lua.setup {}
       local servers = {
-        clangd = {},
+        clangd = {
+          settings = {
+            clangd = {
+              completion = {
+                callSnippet = 'Replace',
+              },
+            },
+          },
+        },
         -- gopls = {},
         -- pyright = {},
         -- rust_analyzer = {},
@@ -204,6 +214,7 @@ return {
             },
           },
         },
+        jdtls = {},
       }
 
       -- Ensure the servers and tools above are installed
